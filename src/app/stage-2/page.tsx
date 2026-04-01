@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Stage2Page() {
   return (
     <>
-      <ProductHero badge={product.badge} title={product.title} tagline={product.tagline} />
+      <ProductHero badge={product.badge} title={product.title} tagline={product.tagline} isStage2 />
       <SpecsGrid specs={product.specs} />
       <HowItWorks steps={product.steps} />
       <ProductCta stage="stage-2" title={product.title} />
