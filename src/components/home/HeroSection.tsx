@@ -1,28 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/motion/CountUp";
 import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-14 pt-14">
-      {/* Real iceberg background photo */}
-      <Image
-        src="/images/iceberg-bg.jpg"
-        alt="Iceberg background"
-        fill
-        className="object-cover"
-        priority
-        quality={90}
-      />
-
+    <section
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-14 pt-14 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/iceberg-bg.jpg')" }}
+    >
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
-      {/* Subtle blue tint overlay */}
-      <div className="absolute inset-0 bg-sky-950/30 mix-blend-multiply pointer-events-none" />
+      {/* Blue tint */}
+      <div className="absolute inset-0 bg-sky-950/30 mix-blend-multiply" />
 
       {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
