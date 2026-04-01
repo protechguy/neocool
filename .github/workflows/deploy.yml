@@ -1,0 +1,22 @@
+name: Deploy to Hostinger VPS
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /var/www/neocool
+            git pull origin main
+            npm ci
+            npm run build
+            pm2 restart neocool || pm2 start ecosystem.config.js
