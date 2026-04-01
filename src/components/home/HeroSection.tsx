@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-hero-gradient min-h-screen flex flex-col items-center justify-center overflow-hidden grid-pattern -mt-14 pt-14">
+    <section className="relative bg-hero-gradient min-h-screen flex flex-col items-center justify-center overflow-hidden igloo-bg -mt-14 pt-14">
       {/* Ambient frost orbs */}
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(56,189,248,0.06)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,165,233,0.05)_0%,transparent_70%)] pointer-events-none" />

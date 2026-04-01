@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 
 export function ProductHero({ badge, title, tagline, isStage2 = false }: { badge: string; title: string; tagline: string; isStage2?: boolean }) {
   return (
-    <section className="relative bg-hero-gradient min-h-[60vh] flex items-center justify-center overflow-hidden -mt-14 pt-14 grid-pattern">
+    <section className="relative bg-hero-gradient min-h-[60vh] flex items-center justify-center overflow-hidden -mt-14 pt-14 igloo-bg">
       {/* Ambient glow */}
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none ${
         isStage2
