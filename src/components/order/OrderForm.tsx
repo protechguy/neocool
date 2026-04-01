@@ -16,7 +16,7 @@ const stageOptions = [
   { value: "both" as const, label: "Both — Stage 1 + Stage 2 Bundle" },
 ];
 
-const inputStyles = "w-full rounded-xl border border-glass-border bg-deep-surface/50 px-4 py-3 text-sm text-text-primary outline-none focus:ring-2 focus:ring-ice-blue/30 focus:border-ice-blue/30 placeholder:text-text-muted";
+const inputStyles = "w-full rounded-xl border border-sky-200 bg-white/60 px-4 py-3 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-sky-400/30 focus:border-sky-400/40 placeholder:text-slate-400";
 
 export function OrderForm() {
   const searchParams = useSearchParams();
@@ -54,12 +54,12 @@ export function OrderForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Mod selection */}
         <fieldset>
-          <legend className="text-sm font-medium text-text-primary mb-3">Select Your Mod</legend>
+          <legend className="text-sm font-medium text-slate-900 mb-3">Select Your Mod</legend>
           <div className="space-y-2">
             {stageOptions.map((opt) => (
               <label key={opt.value} className="flex items-center gap-3 cursor-pointer group">
                 <input type="radio" value={opt.value} {...register("stage")} className="accent-[#38bdf8] w-4 h-4" />
-                <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">{opt.label}</span>
+                <span className="text-sm text-slate-600 group-hover:text-slate-900 transition-colors">{opt.label}</span>
               </label>
             ))}
           </div>
@@ -68,21 +68,21 @@ export function OrderForm() {
 
         {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
+          <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-1">Name</label>
           <input id="name" {...register("name")} className={inputStyles} placeholder="Your name" />
           {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>}
         </div>
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-1">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-1">Email</label>
           <input id="email" type="email" {...register("email")} className={inputStyles} placeholder="you@example.com" />
           {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>}
         </div>
 
         {/* Model */}
         <div>
-          <label htmlFor="model" className="block text-sm font-medium text-text-primary mb-1">MacBook Model</label>
+          <label htmlFor="model" className="block text-sm font-medium text-slate-900 mb-1">MacBook Model</label>
           <select id="model" {...register("model")} className={inputStyles}>
             <option value="">Select your model...</option>
             {MACBOOK_MODELS.map((m) => <option key={m} value={m}>{m}</option>)}
@@ -92,7 +92,7 @@ export function OrderForm() {
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-1">Message <span className="text-text-muted">(optional)</span></label>
+          <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-1">Message <span className="text-slate-400">(optional)</span></label>
           <textarea id="message" rows={3} {...register("message")} className={`${inputStyles} resize-none`} placeholder="Any additional notes..." />
         </div>
 

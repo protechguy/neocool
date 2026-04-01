@@ -17,23 +17,25 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-deep/80 backdrop-blur-2xl border-b border-glass-border shadow-[0_1px_12px_rgba(0,0,0,0.4)]"
+          ? "bg-[#d4eef6]/80 backdrop-blur-2xl border-b border-sky-200/40 shadow-[0_1px_12px_rgba(4,45,74,0.08)]"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-14">
         <Link href="/" className="relative z-10">
-          <span className="text-[15px] font-bold tracking-[0.2em] uppercase text-text-primary">
+          <span className={`text-[15px] font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${
+            scrolled ? "text-slate-900" : "text-white"
+          }`}>
             Neocool
           </span>
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/stage-1" className="text-[13px] font-medium text-text-secondary hover:text-ice-blue transition-colors duration-300">
+          <Link href="/stage-1" className={`text-[13px] font-medium transition-colors duration-300 ${scrolled ? "text-slate-500 hover:text-slate-900" : "text-white/70 hover:text-white"}`}>
             Stage 1
           </Link>
-          <Link href="/stage-2" className="text-[13px] font-medium text-text-secondary hover:text-ice-blue transition-colors duration-300">
+          <Link href="/stage-2" className={`text-[13px] font-medium transition-colors duration-300 ${scrolled ? "text-slate-500 hover:text-slate-900" : "text-white/70 hover:text-white"}`}>
             Stage 2
           </Link>
           <Link
@@ -46,7 +48,7 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-text-primary"
+          className={`md:hidden p-2 transition-colors ${scrolled ? "text-slate-900" : "text-white"}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -58,11 +60,11 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-deep/95 backdrop-blur-2xl border-b border-glass-border px-6 py-5 flex flex-col gap-4">
-          <Link href="/stage-1" className="text-[15px] text-text-secondary hover:text-ice-blue transition-colors" onClick={() => setMenuOpen(false)}>
+        <div className="md:hidden bg-[#d4eef6]/95 backdrop-blur-2xl border-b border-sky-200/40 px-6 py-5 flex flex-col gap-4">
+          <Link href="/stage-1" className="text-[15px] text-slate-500 hover:text-slate-900 transition-colors" onClick={() => setMenuOpen(false)}>
             Stage 1
           </Link>
-          <Link href="/stage-2" className="text-[15px] text-text-secondary hover:text-ice-blue transition-colors" onClick={() => setMenuOpen(false)}>
+          <Link href="/stage-2" className="text-[15px] text-slate-500 hover:text-slate-900 transition-colors" onClick={() => setMenuOpen(false)}>
             Stage 2
           </Link>
           <Link href="/order" className="bg-ice-blue text-deep text-[15px] font-semibold px-5 py-2.5 rounded-full text-center" onClick={() => setMenuOpen(false)}>

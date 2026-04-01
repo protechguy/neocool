@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-hero-gradient min-h-screen flex flex-col items-center justify-center overflow-hidden igloo-bg -mt-14 pt-14">
-      {/* Ambient frost orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(56,189,248,0.06)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(14,165,233,0.05)_0%,transparent_70%)] pointer-events-none" />
+    <section className="relative bg-hero-gradient min-h-screen flex flex-col items-center justify-center overflow-hidden caustics -mt-14 pt-14">
+      {/* Underwater light shafts */}
+      <div className="absolute top-0 left-1/3 w-[200px] h-[70%] bg-gradient-to-b from-transparent via-sky-400/[0.03] to-transparent rotate-[15deg] pointer-events-none" />
+      <div className="absolute top-0 right-1/3 w-[150px] h-[60%] bg-gradient-to-b from-transparent via-cyan-300/[0.04] to-transparent rotate-[-10deg] pointer-events-none" />
 
-      {/* Main content */}
+      {/* Main content — positioned in the underwater zone */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,13 +22,13 @@ export function HeroSection() {
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tight">
             Keep Your<br />
-            <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-blue-300 bg-clip-text text-transparent">
               MacBook Neo
             </span>
             <br />Ice Cold.
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-text-secondary max-w-xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl text-sky-200/50 max-w-xl mx-auto leading-relaxed">
             Two-stage thermal modification system. Precision-cut thermal pads and custom copper heatsinks engineered for peak performance.
           </p>
         </motion.div>
@@ -42,7 +42,7 @@ export function HeroSection() {
         >
           {/* Before */}
           <div className="flex flex-col items-center">
-            <span className="text-[11px] uppercase tracking-[3px] font-semibold text-text-muted mb-2">Without Neocool</span>
+            <span className="text-[11px] uppercase tracking-[3px] font-semibold text-sky-300/40 mb-2">Without Neocool</span>
             <div className="text-5xl md:text-6xl font-bold text-red-400 pulse-warm rounded-2xl px-6 py-3">
               <CountUp to={95} duration={2} suffix="°C" />
             </div>
@@ -50,15 +50,15 @@ export function HeroSection() {
           </div>
 
           {/* Arrow */}
-          <div className="text-text-muted text-2xl rotate-90 sm:rotate-0">→</div>
+          <div className="text-sky-400/30 text-2xl rotate-90 sm:rotate-0">→</div>
 
           {/* After */}
           <div className="flex flex-col items-center">
-            <span className="text-[11px] uppercase tracking-[3px] font-semibold text-text-muted mb-2">With Neocool</span>
+            <span className="text-[11px] uppercase tracking-[3px] font-semibold text-sky-300/40 mb-2">With Neocool</span>
             <div className="text-5xl md:text-6xl font-bold text-ice-blue pulse-cool rounded-2xl px-6 py-3">
               <CountUp to={72} duration={2} suffix="°C" />
             </div>
-            <span className="mt-2 text-[13px] text-ice-blue/50">Full performance</span>
+            <span className="mt-2 text-[13px] text-sky-400/50">Full performance</span>
           </div>
         </motion.div>
 
@@ -75,9 +75,6 @@ export function HeroSection() {
           </Button>
         </motion.div>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep to-transparent pointer-events-none" />
     </section>
   );
 }

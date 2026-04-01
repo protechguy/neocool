@@ -4,22 +4,23 @@
   --color-ice-blue: #38bdf8;
   --color-ice-blue-hover: #7dd3fc;
   --color-frost: #0ea5e9;
-  --color-deep: #020617;
-  --color-deep-mid: #0f172a;
-  --color-deep-surface: #1e293b;
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
-  --color-glass-bg: rgba(15, 23, 42, 0.6);
-  --color-glass-border: rgba(148, 163, 184, 0.12);
+  --color-deep: #03080f;
+  --color-deep-mid: #081824;
+  --color-deep-surface: #0c2236;
+  --color-ocean: #041525;
+  --color-text-primary: #e8f4f8;
+  --color-text-secondary: #8ab4c7;
+  --color-text-muted: #4a7a90;
+  --color-glass-bg: rgba(8, 24, 36, 0.6);
+  --color-glass-border: rgba(138, 180, 199, 0.1);
   --color-glass-light: rgba(56, 189, 248, 0.06);
   --color-copper: #f59e0b;
   --color-copper-light: #fbbf24;
   --font-family-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --radius-card: 20px;
   --radius-button: 980px;
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.5);
   --shadow-glow-ice: 0 0 60px rgba(56, 189, 248, 0.2);
   --shadow-glow-copper: 0 0 60px rgba(245, 158, 11, 0.15);
 }
@@ -34,57 +35,145 @@ html {
 }
 
 body {
-  background-color: var(--color-deep);
   color: var(--color-text-primary);
   overflow-x: hidden;
-  /* Subtle igloo bricks across entire page */
-  background-image:
-    linear-gradient(90deg, rgba(148,163,184,0.03) 0px, rgba(148,163,184,0.03) 1px, transparent 1px, transparent 120px) ,
-    linear-gradient(90deg, rgba(148,163,184,0.03) 0px, rgba(148,163,184,0.03) 1px, transparent 1px, transparent 120px),
-    linear-gradient(transparent 59px, rgba(148,163,184,0.03) 59px, rgba(148,163,184,0.03) 60px, transparent 60px);
-  background-size: 120px 60px, 120px 60px, 120px 60px;
-  background-position: 0 0, 60px 30px, 0 0;
+  /* Deep ocean to iceberg above-water gradient */
+  background: var(--color-deep);
 }
 
-/* Frosted backgrounds */
+/* ============================================
+   ICEBERG BACKGROUNDS
+   Deep ocean below → icy surface → misty sky
+   ============================================ */
+
+/* Hero: deep underwater looking up at iceberg underside */
 .bg-hero-gradient {
-  background: linear-gradient(180deg, #000814 0%, #001d3d 40%, #0f172a 100%);
+  background:
+    /* Deep ocean floor */
+    linear-gradient(180deg,
+      #010a13 0%,
+      #021a2e 15%,
+      #042d4a 35%,
+      /* Underwater glow — light refracting through ice */
+      #064a6e 55%,
+      /* Surface transition — brighter where ice meets water */
+      #0c6b8a 72%,
+      #0e8aaa 82%,
+      /* Above water — icy mist */
+      #b8e4f0 92%,
+      #d4eef6 96%,
+      #e8f6fa 100%
+    );
 }
 
+/* Sections: icy above-water surface */
 .bg-section-frost {
-  background: linear-gradient(180deg, var(--color-deep) 0%, #0c1929 50%, var(--color-deep) 100%);
+  background: linear-gradient(180deg,
+    #d4eef6 0%,
+    #c0e4f0 30%,
+    #aedaea 60%,
+    #c0e4f0 80%,
+    #d4eef6 100%
+  );
 }
 
+/* Deep section: back underwater */
 .bg-deep-section {
-  background: linear-gradient(180deg, #000814 0%, #001d3d 50%, #000814 100%);
+  background: linear-gradient(180deg,
+    #021a2e 0%,
+    #042d4a 40%,
+    #064a6e 70%,
+    #042d4a 100%
+  );
 }
 
-/* Frost glass panel */
+/* Above-water icy surface for cards/specs */
+.bg-ice-surface {
+  background: linear-gradient(180deg,
+    #d4eef6 0%,
+    #e0f2f8 50%,
+    #d4eef6 100%
+  );
+}
+
+/* ============================================
+   GLASS PANELS — frosted ice
+   ============================================ */
+
+/* Frosted ice panel (for use on light icy backgrounds) */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(148, 163, 184, 0.06);
+    0 8px 32px rgba(4, 45, 74, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* Lighter frost variant for cards that need more contrast */
-.glass-panel-light {
-  background: rgba(30, 41, 59, 0.5);
+/* Deep underwater glass (for use on dark backgrounds) */
+.glass-panel-deep {
+  background: rgba(4, 45, 74, 0.4);
   backdrop-filter: blur(24px) saturate(150%);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.12);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(148, 163, 184, 0.08);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(56, 189, 248, 0.06);
 }
 
-/* Temperature gauge animations */
+/* ============================================
+   ICEBERG TEXTURE — crystalline facets
+   ============================================ */
+
+/* Subtle ice crystal pattern */
+.ice-texture {
+  position: relative;
+}
+.ice-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* Diagonal ice fracture lines */
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.03) 25%, transparent 25%) 0 0 / 80px 80px,
+    linear-gradient(225deg,
+      rgba(255, 255, 255, 0.02) 25%, transparent 25%) 40px 0 / 80px 80px,
+    /* Horizontal ice layers */
+    linear-gradient(180deg,
+      transparent 0%, transparent 48%,
+      rgba(255, 255, 255, 0.015) 48%, rgba(255, 255, 255, 0.015) 52%,
+      transparent 52%) 0 0 / 100% 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Underwater caustic light pattern */
+.caustics {
+  position: relative;
+}
+.caustics::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80px 60px at 20% 30%, rgba(56, 189, 248, 0.04), transparent),
+    radial-gradient(ellipse 100px 40px at 60% 50%, rgba(56, 189, 248, 0.03), transparent),
+    radial-gradient(ellipse 60px 80px at 80% 20%, rgba(14, 165, 233, 0.04), transparent),
+    radial-gradient(ellipse 90px 50px at 40% 70%, rgba(56, 189, 248, 0.03), transparent),
+    radial-gradient(ellipse 70px 70px at 75% 80%, rgba(14, 165, 233, 0.03), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
 @keyframes pulse-warm {
-  0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); }
-  50% { box-shadow: 0 0 50px rgba(239, 68, 68, 0.5); }
+  0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 50px rgba(239, 68, 68, 0.6); }
 }
 
 @keyframes pulse-cool {
@@ -100,51 +189,10 @@ body {
   animation: pulse-cool 2.5s ease-in-out infinite;
 }
 
-/* Igloo ice-block pattern — offset brick rows */
-.grid-pattern {
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
-  background-size: 120px 60px, 120px 60px, 120px 60px, 120px 60px;
-  background-position: 0 0, 0 0, 60px 30px, 60px 30px;
-}
+/* ============================================
+   BADGES
+   ============================================ */
 
-/* Full igloo ice-brick background with frost sheen */
-.igloo-bg {
-  position: relative;
-}
-.igloo-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    /* Row 1: full bricks */
-    linear-gradient(90deg,
-      rgba(148, 163, 184, 0.06) 0px, rgba(148, 163, 184, 0.06) 1px,
-      transparent 1px, transparent 119px,
-      rgba(148, 163, 184, 0.06) 119px, rgba(148, 163, 184, 0.06) 120px) 0 0 / 120px 60px,
-    /* Row 2: offset bricks */
-    linear-gradient(90deg,
-      rgba(148, 163, 184, 0.06) 0px, rgba(148, 163, 184, 0.06) 1px,
-      transparent 1px, transparent 119px,
-      rgba(148, 163, 184, 0.06) 119px, rgba(148, 163, 184, 0.06) 120px) 60px 60px / 120px 60px,
-    /* Horizontal lines */
-    linear-gradient(
-      transparent 59px,
-      rgba(148, 163, 184, 0.06) 59px,
-      rgba(148, 163, 184, 0.06) 60px,
-      transparent 60px) 0 0 / 120px 60px,
-    /* Frost shimmer on bricks */
-    linear-gradient(135deg,
-      rgba(56, 189, 248, 0.02) 25%, transparent 25%, transparent 50%,
-      rgba(56, 189, 248, 0.02) 50%, rgba(56, 189, 248, 0.02) 75%, transparent 75%) 0 0 / 240px 120px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Feature badge */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -158,18 +206,21 @@ body {
 }
 
 .badge-blue {
-  background: rgba(56, 189, 248, 0.1);
+  background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .badge-copper {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(245, 158, 11, 0.15);
   color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
-/* Smooth scrollbar */
+/* ============================================
+   SCROLLBAR & FOCUS
+   ============================================ */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -177,14 +228,13 @@ body {
   background: var(--color-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.15);
+  background: rgba(56, 189, 248, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.3);
+  background: rgba(56, 189, 248, 0.3);
 }
 
-/* Focus styles */
 :focus-visible {
   outline: 2px solid var(--color-ice-blue);
   outline-offset: 2px;
