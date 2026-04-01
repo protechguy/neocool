@@ -9,8 +9,8 @@ export function ProductHero({ badge, title, tagline, isStage2 = false }: { badge
       {/* Ambient glow */}
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none ${
         isStage2
-          ? "bg-[radial-gradient(circle,rgba(184,115,51,0.1)_0%,transparent_70%)]"
-          : "bg-[radial-gradient(circle,rgba(0,113,227,0.1)_0%,transparent_70%)]"
+          ? "bg-[radial-gradient(circle,rgba(245,158,11,0.08)_0%,transparent_70%)]"
+          : "bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)]"
       }`} />
 
       <Container className="relative z-10 text-center">
@@ -20,13 +20,13 @@ export function ProductHero({ badge, title, tagline, isStage2 = false }: { badge
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className={`badge ${isStage2 ? "badge-copper" : "badge-blue"}`}>{badge}</span>
-          <h1 className="mt-6 text-5xl md:text-7xl font-bold text-white leading-[0.95] tracking-tight">{title}</h1>
-          <p className="mt-5 text-xl text-white/40">{tagline}</p>
+          <h1 className="mt-6 text-5xl md:text-7xl font-bold text-text-primary leading-[0.95] tracking-tight">{title}</h1>
+          <p className="mt-5 text-xl text-text-secondary">{tagline}</p>
         </motion.div>
       </Container>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-apple-bg to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep to-transparent pointer-events-none" />
     </section>
   );
 }

@@ -11,7 +11,7 @@ export function HowItWorks({ steps }: { steps: { title: string; description: str
           {steps.map((step, i) => (
             <FadeUp key={step.title} delay={i * 0.15}>
               <div className="text-center">
-                <div className="mx-auto w-14 h-14 rounded-2xl bg-apple-blue/10 text-apple-blue flex items-center justify-center text-lg font-bold">
+                <div className="mx-auto w-14 h-14 rounded-2xl bg-ice-blue/10 text-ice-blue flex items-center justify-center text-lg font-bold border border-ice-blue/20">
                   {i + 1}
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-text-primary">{step.title}</h3>

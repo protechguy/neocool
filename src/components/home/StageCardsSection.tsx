@@ -9,7 +9,7 @@ export function StageCardsSection() {
   const stages = [PRODUCTS["stage-1"], PRODUCTS["stage-2"]];
 
   return (
-    <section className="py-24 bg-section-gradient">
+    <section className="py-24 bg-section-frost">
       <Container>
         <SectionHeading
           title="Two-Stage Cooling System"
@@ -18,10 +18,12 @@ export function StageCardsSection() {
         <div className="grid md:grid-cols-2 gap-8">
           {stages.map((product, i) => (
             <FadeUp key={product.slug} delay={i * 0.15}>
-              <GlassCard className="p-10 text-center relative overflow-hidden group hover:shadow-elevated transition-shadow duration-500">
-                {/* Subtle glow on hover */}
+              <GlassCard className="p-10 text-center relative overflow-hidden group hover:shadow-elevated transition-all duration-500 hover:border-ice-blue/20">
+                {/* Frost glow on hover */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                  i === 0 ? "bg-[radial-gradient(circle_at_50%_0%,rgba(0,113,227,0.06),transparent_60%)]" : "bg-[radial-gradient(circle_at_50%_0%,rgba(184,115,51,0.06),transparent_60%)]"
+                  i === 0
+                    ? "bg-[radial-gradient(circle_at_50%_0%,rgba(56,189,248,0.08),transparent_60%)]"
+                    : "bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.06),transparent_60%)]"
                 }`} />
 
                 <div className="relative z-10">
