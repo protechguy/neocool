@@ -168,6 +168,94 @@ body {
 }
 
 /* ============================================
+   FOG / MIST / FROST EFFECTS
+   ============================================ */
+
+/* Drifting fog — two layers moving in opposite directions */
+@keyframes fog-drift-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fog-drift-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fog-layer::before,
+.fog-layer::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Slow-moving fog bank — bottom half */
+.fog-layer::before {
+  background:
+    radial-gradient(ellipse 600px 200px at 15% 80%, rgba(255,255,255,0.12), transparent),
+    radial-gradient(ellipse 800px 250px at 50% 85%, rgba(200,230,245,0.1), transparent),
+    radial-gradient(ellipse 500px 180px at 80% 75%, rgba(255,255,255,0.08), transparent),
+    radial-gradient(ellipse 700px 220px at 30% 90%, rgba(186,230,253,0.07), transparent),
+    radial-gradient(ellipse 400px 150px at 65% 95%, rgba(255,255,255,0.1), transparent);
+  animation: fog-drift-left 60s linear infinite;
+}
+
+/* Counter-drift fog — upper wisps */
+.fog-layer::after {
+  background:
+    radial-gradient(ellipse 500px 120px at 25% 40%, rgba(255,255,255,0.05), transparent),
+    radial-gradient(ellipse 600px 100px at 70% 35%, rgba(200,230,245,0.04), transparent),
+    radial-gradient(ellipse 400px 80px at 45% 50%, rgba(255,255,255,0.03), transparent);
+  animation: fog-drift-right 80s linear infinite;
+}
+
+/* Frost vignette — icy edges around viewport */
+.frost-vignette {
+  position: relative;
+}
+.frost-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* Top frost */
+    linear-gradient(180deg, rgba(200,230,245,0.15) 0%, transparent 15%),
+    /* Bottom frost */
+    linear-gradient(0deg, rgba(200,230,245,0.1) 0%, transparent 15%),
+    /* Left frost */
+    linear-gradient(90deg, rgba(200,230,245,0.08) 0%, transparent 10%),
+    /* Right frost */
+    linear-gradient(270deg, rgba(200,230,245,0.08) 0%, transparent 10%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Breath mist — subtle pulsing cold haze */
+@keyframes breath-mist {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.cold-haze {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,230,245,0.15), transparent 70%);
+  pointer-events: none;
+  animation: breath-mist 8s ease-in-out infinite;
+}
+
+/* ============================================
    ANIMATIONS
    ============================================ */
 

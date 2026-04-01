@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 export function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-14 pt-14 bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-14 pt-14 bg-cover bg-center bg-no-repeat frost-vignette"
       style={{ backgroundImage: "url('/images/iceberg-bg.jpg')" }}
     >
       {/* Dark overlay for text readability */}
@@ -15,6 +15,14 @@ export function HeroSection() {
 
       {/* Blue tint */}
       <div className="absolute inset-0 bg-sky-950/30 mix-blend-multiply" />
+
+      {/* Drifting fog */}
+      <div className="fog-layer" />
+
+      {/* Cold haze spots */}
+      <div className="cold-haze w-[500px] h-[300px] bottom-[10%] left-[-5%] z-[2]" />
+      <div className="cold-haze w-[400px] h-[250px] bottom-[5%] right-[-5%] z-[2]" style={{ animationDelay: "3s" }} />
+      <div className="cold-haze w-[300px] h-[200px] top-[20%] left-[10%] z-[2]" style={{ animationDelay: "5s" }} />
 
       {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -82,7 +90,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom fade to icy surface */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#d4eef6] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#d4eef6] to-transparent pointer-events-none z-[4]" />
     </section>
   );
 }
