@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <!-- Water line -->
+  <rect x="0" y="380" width="1440" height="1" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Above water — bright ice tip -->
+  <polygon points="620,100 580,200 540,280 520,340 500,380 940,380 920,340 900,280 860,200 820,100 740,60 700,40 680,60"
+    fill="url(#iceAbove)" opacity="0.6"/>
+  <!-- Ice facet highlights above water -->
+  <polygon points="700,40 680,60 620,100 580,200 540,280 520,340 500,380 720,380 700,300 660,200"
+    fill="url(#iceFacetLeft)" opacity="0.3"/>
+  <polygon points="700,40 740,60 820,100 860,200 900,280 920,340 940,380 720,380 740,280 780,180"
+    fill="url(#iceFacetRight)" opacity="0.2"/>
+  <!-- Bright edge highlight -->
+  <polyline points="700,40 680,60 620,100 580,200 540,280 520,340 500,380"
+    stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/>
+
+  <!-- Below water — massive underwater body -->
+  <polygon points="500,380 460,420 380,480 300,560 260,640 240,720 260,800 340,860 500,900 940,900 1100,860 1180,800 1200,720 1180,640 1140,560 1060,480 980,420 940,380"
+    fill="url(#iceBelow)" opacity="0.15"/>
+  <!-- Underwater facets -->
+  <polygon points="500,380 460,420 380,480 300,560 260,640 240,720 260,800 340,860 500,900 720,900 720,380"
+    fill="url(#iceFacetUnderLeft)" opacity="0.08"/>
+  <polygon points="940,380 980,420 1060,480 1140,560 1180,640 1200,720 1180,800 1100,860 940,900 720,900 720,380"
+    fill="url(#iceFacetUnderRight)" opacity="0.05"/>
+  <!-- Underwater edge glow -->
+  <polyline points="500,380 460,420 380,480 300,560 260,640 240,720 260,800 340,860 500,900"
+    stroke="rgba(56,189,248,0.1)" stroke-width="1.5" fill="none"/>
+  <polyline points="940,380 980,420 1060,480 1140,560 1180,640 1200,720 1180,800 1100,860 940,900"
+    stroke="rgba(56,189,248,0.06)" stroke-width="1" fill="none"/>
+
+  <!-- Secondary smaller iceberg in background -->
+  <polygon points="180,280 160,320 140,360 130,380 250,380 240,360 220,320 200,280 190,260"
+    fill="url(#iceAbove)" opacity="0.25"/>
+  <polygon points="130,380 110,420 80,480 70,540 80,600 120,640 200,660 280,640 320,600 330,540 320,480 290,420 250,380"
+    fill="url(#iceBelow)" opacity="0.06"/>
+
+  <!-- Distant small iceberg -->
+  <polygon points="1220,300 1210,340 1200,380 1300,380 1290,340 1280,300 1260,280 1240,280"
+    fill="url(#iceAbove)" opacity="0.15"/>
+  <polygon points="1200,380 1180,440 1170,500 1180,560 1220,590 1280,590 1320,560 1330,500 1320,440 1300,380"
+    fill="url(#iceBelow)" opacity="0.04"/>
+
+  <defs>
+    <!-- Above water gradient: bright icy white/blue -->
+    <linearGradient id="iceAbove" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0f7ff"/>
+      <stop offset="40%" stop-color="#b8e8f5"/>
+      <stop offset="100%" stop-color="#8dd4e8"/>
+    </linearGradient>
+    <!-- Left facet: slightly darker for depth -->
+    <linearGradient id="iceFacetLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#a0d8ea"/>
+    </linearGradient>
+    <!-- Right facet: lighter -->
+    <linearGradient id="iceFacetRight" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c0e8f5"/>
+    </linearGradient>
+    <!-- Below water gradient: deep blue/teal -->
+    <linearGradient id="iceBelow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="40%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <!-- Underwater facets -->
+    <linearGradient id="iceFacetUnderLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="iceFacetUnderRight" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+  </defs>
+</svg>
