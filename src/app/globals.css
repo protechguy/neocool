@@ -194,10 +194,10 @@ body {
 .fog-layer::after {
   content: "";
   position: absolute;
-  width: 200%;
+  width: 200vw;
   height: 100%;
   top: 0;
-  left: 0;
+  left: -50vw;
 }
 
 /* Slow-moving fog bank — bottom half */
@@ -238,7 +238,7 @@ body {
     /* Right frost */
     linear-gradient(270deg, rgba(200,230,245,0.08) 0%, transparent 10%);
   pointer-events: none;
-  z-index: 3;
+  z-index: 1;
 }
 
 /* Breath mist — subtle pulsing cold haze */
