@@ -24,12 +24,13 @@ export function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<OrderSchema>({
-    resolver: zodResolver(orderSchema),
-    defaultValues: { stage: defaultStage, message: "" },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+    resolver: zodResolver(orderSchema) as any,
+    defaultValues: { stage: defaultStage ?? "", name: "", email: "", model: "", message: "" },
   });
 
-  const onSubmit = async (data: OrderSchema) => {
+  const onSubmit = async (data: Record<string, unknown>) => {
     setServerError("");
     try {
       const res = await fetch("/api/order", {
