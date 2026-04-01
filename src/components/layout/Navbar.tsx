@@ -48,7 +48,7 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className={`md:hidden p-2 transition-colors ${scrolled ? "text-slate-900" : "text-white"}`}
+          className={`md:hidden p-3 transition-colors ${scrolled ? "text-slate-900" : "text-white"}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >

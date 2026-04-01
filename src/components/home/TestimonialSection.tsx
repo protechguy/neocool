@@ -8,7 +8,7 @@ export function TestimonialSection() {
       <Container className="max-w-3xl">
         <FadeUp>
           <GlassCard className="p-10 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-[radial-gradient(ellipse,rgba(56,189,248,0.08)_0%,transparent_70%)] pointer-events-none" />
+            <div className="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-[radial-gradient(ellipse,rgba(56,189,248,0.08)_0%,transparent_70%)] pointer-events-none" />
 
             <div className="relative z-10">
               <div className="flex justify-center gap-1 mb-6">
@@ -18,7 +18,7 @@ export function TestimonialSection() {
                   </svg>
                 ))}
               </div>
-              <blockquote className="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed">
+              <blockquote className="text-lg sm:text-xl md:text-2xl font-medium text-slate-800 leading-relaxed">
                 &ldquo;Dropped 15&deg;C and my fans barely spin now. Game changer for video editing on my MacBook Neo.&rdquo;
               </blockquote>
               <figcaption className="mt-6 text-sm text-slate-500">

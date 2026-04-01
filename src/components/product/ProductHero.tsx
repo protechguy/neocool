@@ -20,7 +20,7 @@ export function ProductHero({ badge, title, tagline, isStage2 = false }: { badge
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <span className={`badge ${isStage2 ? "badge-copper" : "badge-blue"}`}>{badge}</span>
-          <h1 className="mt-6 text-5xl md:text-7xl font-bold text-white leading-[0.95] tracking-tight">{title}</h1>
+          <h1 className="mt-6 text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-[0.95] tracking-tight">{title}</h1>
           <p className="mt-5 text-xl text-sky-200/40">{tagline}</p>
         </motion.div>
       </Container>

@@ -14,7 +14,7 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex gap-12">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
             <div>
               <h4 className="text-[11px] uppercase tracking-[2px] text-sky-400/30 font-semibold mb-3">Products</h4>
               <div className="flex flex-col gap-2">

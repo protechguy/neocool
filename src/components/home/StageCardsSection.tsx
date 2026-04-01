@@ -29,11 +29,11 @@ export function StageCardsSection() {
                   <span className={`badge ${i === 0 ? "badge-blue" : "badge-copper"}`}>
                     {product.badge}
                   </span>
-                  <h3 className="mt-5 text-2xl font-semibold text-slate-900">{product.title}</h3>
+                  <h3 className="mt-5 text-xl sm:text-2xl font-semibold text-slate-900">{product.title}</h3>
                   <p className="mt-3 text-[15px] text-slate-500 leading-relaxed max-w-sm mx-auto">
                     {product.description}
                   </p>
-                  <div className="mt-6 text-3xl font-bold text-slate-900">{product.price}</div>
+                  <div className="mt-6 text-2xl sm:text-3xl font-bold text-slate-900">{product.price}</div>
                   <div className="mt-8">
                     <Button href={`/${product.slug}`} variant="primary">
                       Learn More
