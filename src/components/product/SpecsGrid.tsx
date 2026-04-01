@@ -13,9 +13,9 @@ export function SpecsGrid({ specs }: { specs: ProductSpec[] }) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {specs.map((spec, i) => (
             <FadeUp key={spec.label} delay={i * 0.1}>
-              <GlassCard className="p-7 text-center">
+              <GlassCard className="p-5 sm:p-7 text-center">
                 <p className="text-[11px] uppercase tracking-[2px] text-slate-400 font-semibold">{spec.label}</p>
-                <p className="mt-3 text-xl font-bold text-slate-900">{spec.value}</p>
+                <p className="mt-3 text-lg sm:text-xl font-bold text-slate-900">{spec.value}</p>
               </GlassCard>
             </FadeUp>
           ))}
