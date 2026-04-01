@@ -11,12 +11,13 @@ type ButtonProps = {
 };
 
 export function Button({ children, href, variant = "primary", className = "", type = "button", disabled, onClick }: ButtonProps) {
-  const base = "inline-block font-medium transition-colors text-center";
+  const base = "inline-block font-medium transition-all duration-300 text-center cursor-pointer";
   const variants = {
-    primary: "bg-apple-blue hover:bg-apple-blue-hover text-white px-8 py-3 rounded-[22px] text-base",
-    secondary: "bg-glass-bg backdrop-blur-[16px] border border-glass-border text-text-primary px-8 py-3 rounded-[22px] text-base hover:bg-white",
+    primary: "bg-apple-blue hover:bg-apple-blue-hover text-white px-7 py-3 rounded-full text-[15px] hover:shadow-glow-blue active:scale-[0.98]",
+    secondary: "bg-white/80 backdrop-blur-xl border border-black/[0.06] text-text-primary px-7 py-3 rounded-full text-[15px] hover:bg-white hover:shadow-elevated active:scale-[0.98]",
   };
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
+  const classes = `${base} ${variants[variant]} ${disabledStyles} ${className}`;
 
   if (href) {
     return <Link href={href} className={classes}>{children}</Link>;
