@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
-import { orderSchema } from "@/lib/validators";
+import Link from "next/link";
+import { orderSchema, type OrderSchema } from "@/lib/validators";
 import { MACBOOK_MODELS } from "@/lib/constants";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
@@ -26,13 +27,12 @@ export function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
-    resolver: zodResolver(orderSchema) as any,
-    defaultValues: { stage: defaultStage ?? "", name: "", email: "", model: "", message: "" },
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<OrderSchema>({
+    resolver: zodResolver(orderSchema),
+    defaultValues: { stage: defaultStage, name: "", email: "", model: "", message: "" },
   });
 
-  const onSubmit = async (data: Record<string, unknown>) => {
+  const onSubmit = async (data: OrderSchema) => {
     setServerError("");
     try {
       const res = await fetch("/api/order", {
@@ -101,6 +101,13 @@ export function OrderForm() {
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? "Submitting..." : "Submit Order Request"}
         </Button>
+
+        <p className="text-xs text-slate-500 text-center">
+          By submitting, you agree to our{" "}
+          <Link href="/privacy" className="text-sky-600 underline hover:text-sky-700">
+            Privacy Policy
+          </Link>.
+        </p>
       </form>
     </GlassCard>
   );

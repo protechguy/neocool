@@ -20,6 +20,8 @@ export interface ProductData {
   tagline: string;
   description: string;
   price: string;
+  priceAmount: number;
+  priceCurrency: string;
   specs: ProductSpec[];
   steps: { title: string; description: string }[];
 }

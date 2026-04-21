@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neocool
 
-## Getting Started
+Marketing and order-request site for Neocool — precision thermal mods (Stage 1 thermal pad, Stage 2 copper heatsink) for the MacBook Neo.
 
-First, run the development server:
+Built with Next.js 16 (App Router, Turbopack), React 19.2, Tailwind CSS v4, `react-hook-form` + Zod v4, `framer-motion`, and Nodemailer.
+
+## Requirements
+
+- Node.js 20.9+ (per Next.js 16)
+- npm / pnpm / yarn / bun
+- An SMTP account for outbound order emails
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # fill in SMTP credentials
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+See `.env.example` for the required environment variables.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command         | What it does                              |
+| --------------- | ----------------------------------------- |
+| `npm run dev`   | Dev server (Turbopack) on port 3000       |
+| `npm run build` | Production build                          |
+| `npm run start` | Serve the production build                |
+| `npm run lint`  | ESLint (flat config, via `eslint-config-next`) |
 
-## Learn More
+There is no `next lint` in Next 16 — use `npm run lint` (ESLint CLI) directly.
 
-To learn more about Next.js, take a look at the following resources:
+## Project layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                  # App Router pages, layouts, route handlers
+    api/order/route.ts  # POST endpoint that rate-limits + emails order requests
+    layout.tsx          # Root layout, metadata, fonts
+    page.tsx            # Home
+    stage-1/, stage-2/  # Product pages
+    order/              # Order form page
+    robots.ts, sitemap.ts
+  components/           # UI, layout, motion, product, home, order
+  lib/
+    constants.ts        # Site and product copy
+    email.ts            # Nodemailer transport + order email (HTML-escaped)
+    rate-limit.ts       # In-memory per-IP rate limiter
+    validators.ts       # Zod schema for the order form
+  types/
+public/images/          # Static assets (hero background, etc.)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Order flow
 
-## Deploy on Vercel
+1. `src/components/order/OrderForm.tsx` (client) validates with Zod and posts JSON to `/api/order`.
+2. `src/app/api/order/route.ts` rate-limits (5 requests / 10 min / IP), re-validates the payload, and calls `sendOrderEmail`.
+3. `src/lib/email.ts` delivers an HTML + plain-text email to `ORDER_EMAIL_TO` via SMTP. All user-supplied fields are HTML-escaped.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The in-memory rate limiter is per-process; for multi-instance deploys (e.g. PM2 cluster mode) swap it for Redis/Upstash.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+A PM2 config is included (`ecosystem.config.js`) for self-hosted deployments:
+
+```bash
+npm run build
+pm2 start ecosystem.config.js
+```
+
+Required env vars (`SMTP_*`, `ORDER_EMAIL_TO`) must be present in the process environment.
+
+## Caching
+
+`next.config.ts` sets `Cache-Control: no-store, must-revalidate` on HTML documents and API responses only — `_next/static`, `_next/image`, `public/images/*`, and sitemap/robots are left cacheable.

@@ -3,7 +3,9 @@ import { ProductData } from "@/types";
 export const SITE = {
   name: "Neocool",
   domain: "neocool.com",
+  url: "https://neocool.com",
   description: "Precision thermal mods for MacBook Neo.",
+  privacyEmail: "privacy@neocool.com",
 };
 
 export const MACBOOK_MODELS = [
@@ -20,7 +22,9 @@ export const PRODUCTS: Record<string, ProductData> = {
     title: "Thermal Pad",
     tagline: "The Foundation of Cool",
     description: "Precision-cut thermal pad engineered for optimal heat transfer from the MacBook Neo's processor to the chassis.",
-    price: "$XX",
+    price: "$14.99",
+    priceAmount: 14.99,
+    priceCurrency: "USD",
     specs: [
       { label: "Material", value: "High-conductivity thermal pad" },
       { label: "Thermal Rating", value: "12 W/mK" },
@@ -39,7 +43,9 @@ export const PRODUCTS: Record<string, ProductData> = {
     title: "Copper Heatsink",
     tagline: "Maximum Thermal Performance",
     description: "Custom-machined copper heatsink that dramatically increases thermal dissipation for sustained peak performance.",
-    price: "$XX",
+    price: "$24.99",
+    priceAmount: 24.99,
+    priceCurrency: "USD",
     specs: [
       { label: "Material", value: "C110 pure copper" },
       { label: "Thermal Rating", value: "385 W/mK" },
