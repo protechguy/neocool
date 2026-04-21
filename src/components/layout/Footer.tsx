@@ -26,6 +26,7 @@ export function Footer() {
               <h4 className="text-[11px] uppercase tracking-[2px] text-sky-400/30 font-semibold mb-3">Company</h4>
               <div className="flex flex-col gap-2">
                 <Link href="/order" className="text-[13px] text-sky-300/50 hover:text-sky-200 transition-colors">Order</Link>
+                <Link href="/privacy" className="text-[13px] text-sky-300/50 hover:text-sky-200 transition-colors">Privacy</Link>
               </div>
             </div>
           </div>

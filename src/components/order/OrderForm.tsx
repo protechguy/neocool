@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { orderSchema, type OrderSchema } from "@/lib/validators";
 import { MACBOOK_MODELS } from "@/lib/constants";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -100,6 +101,13 @@ export function OrderForm() {
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? "Submitting..." : "Submit Order Request"}
         </Button>
+
+        <p className="text-xs text-slate-500 text-center">
+          By submitting, you agree to our{" "}
+          <Link href="/privacy" className="text-sky-600 underline hover:text-sky-700">
+            Privacy Policy
+          </Link>.
+        </p>
       </form>
     </GlassCard>
   );
