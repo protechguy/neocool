@@ -1,15 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/motion/CountUp";
 import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
-    <section
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden -mt-14 pt-20 pb-12 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/iceberg-bg.jpg')" }}
-    >
+    <section className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden -mt-14 pt-20 pb-12">
+      {/* Hero background — LCP element, served via next/image for AVIF/WebP + responsive sizes */}
+      <Image
+        src="/images/iceberg-bg.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center -z-10"
+      />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 

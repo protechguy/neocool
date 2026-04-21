@@ -1,17 +1,21 @@
 import { ProductData } from "@/types";
 
-export const SITE = {
-  name: "Neocool",
-  domain: "neocool.com",
-  description: "Precision thermal mods for MacBook Neo.",
-};
-
 export const MACBOOK_MODELS = [
   "MacBook Neo 14\" (2025)",
   "MacBook Neo 16\" (2025)",
   "MacBook Neo 14\" (2026)",
   "MacBook Neo 16\" (2026)",
 ];
+
+export const STAGE_LABELS = {
+  "stage-1": "Stage 1 — Thermal Pad",
+  "stage-2": "Stage 2 — Copper Heatsink",
+  "both": "Both — Stage 1 + Stage 2 Bundle",
+} as const;
+
+export const STAGE_OPTIONS = (Object.entries(STAGE_LABELS) as [keyof typeof STAGE_LABELS, string][]).map(
+  ([value, label]) => ({ value, label })
+);
 
 export const PRODUCTS: Record<string, ProductData> = {
   "stage-1": {

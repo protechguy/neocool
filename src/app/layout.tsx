@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,9 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <Navbar />
-        <main className="pt-16 min-h-screen">{children}</main>
-        <Footer />
+        <a href="#main-content" className="skip-link">Skip to main content</a>
+        <MotionProvider>
+          <Navbar />
+          <main id="main-content" className="pt-16 min-h-screen">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
