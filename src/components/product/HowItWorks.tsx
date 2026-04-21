@@ -7,7 +7,7 @@ export function HowItWorks({ steps }: { steps: { title: string; description: str
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">How It Works</h2>
-          <p className="mt-3 text-lg text-slate-500">Three simple steps.</p>
+          <p className="mt-3 text-lg text-slate-500">Three simple steps &mdash; fully reversible, no adhesive, no soldering.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-10">
           {steps.map((step, i) => (

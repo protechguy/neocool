@@ -9,10 +9,8 @@ export const SITE = {
 };
 
 export const MACBOOK_MODELS = [
-  "MacBook Neo 14\" (2025)",
-  "MacBook Neo 16\" (2025)",
-  "MacBook Neo 14\" (2026)",
-  "MacBook Neo 16\" (2026)",
+  "MacBook Neo 13\" — 256 GB (A18 Pro, 2026)",
+  "MacBook Neo 13\" — 512 GB (A18 Pro, 2026)",
 ];
 
 export const PRODUCTS: Record<string, ProductData> = {
@@ -28,7 +26,7 @@ export const PRODUCTS: Record<string, ProductData> = {
     specs: [
       { label: "Material", value: "High-conductivity thermal pad" },
       { label: "Thermal Rating", value: "12 W/mK" },
-      { label: "Compatibility", value: "MacBook Neo 14\" & 16\"" },
+      { label: "Compatibility", value: "MacBook Neo 13\" (A18 Pro, 2026)" },
       { label: "Temp Reduction", value: "Up to 10°C" },
     ],
     steps: [
@@ -49,7 +47,7 @@ export const PRODUCTS: Record<string, ProductData> = {
     specs: [
       { label: "Material", value: "C110 pure copper" },
       { label: "Thermal Rating", value: "385 W/mK" },
-      { label: "Compatibility", value: "MacBook Neo 14\" & 16\"" },
+      { label: "Compatibility", value: "MacBook Neo 13\" (A18 Pro, 2026)" },
       { label: "Temp Reduction", value: "Up to 23°C" },
     ],
     steps: [

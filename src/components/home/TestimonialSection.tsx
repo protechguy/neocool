@@ -19,7 +19,7 @@ export function TestimonialSection() {
                 ))}
               </div>
               <blockquote className="text-lg sm:text-xl md:text-2xl font-medium text-slate-800 leading-relaxed">
-                &ldquo;Dropped 15&deg;C and my fans barely spin now. Game changer for video editing on my MacBook Neo.&rdquo;
+                &ldquo;Long renders used to throttle halfway through. With Neocool, my Neo sustains its boost clock end-to-end &mdash; still silent, still fanless, just cooler.&rdquo;
               </blockquote>
               <figcaption className="mt-6 text-sm text-slate-500">
                 &mdash; Early Tester

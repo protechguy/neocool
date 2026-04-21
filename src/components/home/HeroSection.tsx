@@ -34,7 +34,7 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-white/70 max-w-xl mx-auto leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
-            Two-stage thermal modification system. Precision-cut thermal pads and custom copper heatsinks.
+            Two-stage thermal modification system. Precision-cut thermal pads and custom copper heatsinks, engineered for the fanless A18 Pro chassis.
           </p>
         </motion.div>
 
