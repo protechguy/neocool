@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
-import { orderSchema } from "@/lib/validators";
+import { orderSchema, type OrderSchema } from "@/lib/validators";
 import { MACBOOK_MODELS } from "@/lib/constants";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
@@ -26,13 +26,12 @@ export function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
-    resolver: zodResolver(orderSchema) as any,
-    defaultValues: { stage: defaultStage ?? "", name: "", email: "", model: "", message: "" },
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<OrderSchema>({
+    resolver: zodResolver(orderSchema),
+    defaultValues: { stage: defaultStage, name: "", email: "", model: "", message: "" },
   });
 
-  const onSubmit = async (data: Record<string, unknown>) => {
+  const onSubmit = async (data: OrderSchema) => {
     setServerError("");
     try {
       const res = await fetch("/api/order", {
