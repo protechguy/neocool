@@ -106,6 +106,9 @@ export function OrderForm() {
           By submitting, you agree to our{" "}
           <Link href="/privacy" className="text-sky-600 underline hover:text-sky-700">
             Privacy Policy
+          </Link>{" "}and{" "}
+          <Link href="/terms" className="text-sky-600 underline hover:text-sky-700">
+            Terms of Sale
           </Link>.
         </p>
       </form>

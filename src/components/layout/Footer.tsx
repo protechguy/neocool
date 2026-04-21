@@ -27,6 +27,7 @@ export function Footer() {
               <div className="flex flex-col gap-2">
                 <Link href="/order" className="text-[13px] text-sky-300/50 hover:text-sky-200 transition-colors">Order</Link>
                 <Link href="/privacy" className="text-[13px] text-sky-300/50 hover:text-sky-200 transition-colors">Privacy</Link>
+                <Link href="/terms" className="text-[13px] text-sky-300/50 hover:text-sky-200 transition-colors">Terms</Link>
               </div>
             </div>
           </div>
